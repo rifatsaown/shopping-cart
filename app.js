@@ -1,4 +1,4 @@
-function productQuantity(product , isAdd){
+function productQuantity(product ,price, isAdd){
     const inputValue = document.getElementById('input-'+product);
     let inputQuantity = inputValue.value;
 
@@ -10,11 +10,23 @@ function productQuantity(product , isAdd){
     }
     inputValue.value = inputQuantity;
     const productTotal = document.getElementById(product+"-total");
-    if (product == "case") {
-        productTotal.innerText = inputQuantity * 59;
-    }
-    else if (product == "mobile"){
-        productTotal.innerText = inputQuantity * 1219;
-    }
-    
+    productTotal.innerText = inputQuantity * price;
+    total();
+}
+
+function productValue(product){
+    const inputValue = document.getElementById("input-"+product);
+    const inputQuantity =parseInt(inputValue.value);
+    return inputQuantity;
+}
+function total(){
+    const phoneTotal = productValue("mobile") *1219;
+    const caseTotal = productValue("case") *59;
+    const subTotal = phoneTotal+caseTotal;
+    const taxTotal = subTotal / 10;
+    const total = taxTotal + subTotal;
+
+    document.getElementById("sub-total").innerText = subTotal;
+    document.getElementById("tax").innerText = taxTotal;
+    document.getElementById("total").innerText= total;
 }
