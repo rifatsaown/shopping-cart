@@ -1,2 +1,2 @@
 # shopping-cart
-<a href="https://rifatsaown.github.io/shoping-cart/">Live Link</a>
+<a href="https://rifatsaown.github.io/shopping-cart/">Live Link</a>
